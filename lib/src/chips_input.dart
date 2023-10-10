@@ -206,12 +206,18 @@ class ChipsInputState<T> extends State<ChipsInput<T>> with TextInputClient {
 
   List<T?>? get suggestions => _suggestions;
 
+  TextEditingValue get text => _value;
+
   set chips(Iterable<T> chips){
     _chips = Set.of(chips);
   }
 
   set suggestions(Iterable<T?>? suggestions){
     _suggestions = suggestions?.toList();
+  }
+
+  set text(TextEditingValue textEditingValue){
+    _value = textEditingValue;
   }
 
   @override
