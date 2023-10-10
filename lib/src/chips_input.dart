@@ -202,6 +202,18 @@ class ChipsInputState<T> extends State<ChipsInput<T>> with TextInputClient {
 
   bool get _canRequestFocus => widget.enabled;
 
+  Set<T> get chips => _chips;
+
+  List<T?>? get suggestions => _suggestions;
+
+  set chips(Iterable<T> chips){
+    _chips = Set.of(chips);
+  }
+
+  set suggestions(Iterable<T?>? suggestions){
+    _suggestions = suggestions?.toList();
+  }
+
   @override
   void initState() {
     super.initState();
